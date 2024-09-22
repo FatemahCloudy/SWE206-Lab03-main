@@ -1,6 +1,6 @@
 public class main {
     
-    // Method to read the list of studnts
+    // Method to read the list of students
     public static List<String> readStudentList() {
         List<String> students = new ArrayList<>();
         Scanner input = new Scanner(System.in);
@@ -30,8 +30,8 @@ public class main {
             // Calculate the end index for the current group
             int end = Math.min(i + groupSize, studentsSize);
             
+            List<String> group = new ArrayList<>(students.subList(i, end)); 
             // Create a sublist for the current group
-            List<String> group = new ArrayList<>(students.subList(i, end));
             groups.add(group);
         }
         

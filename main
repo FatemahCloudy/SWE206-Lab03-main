@@ -1,0 +1,41 @@
+public class main {
+    
+    // Method to read the list of studnts
+    public static List<String> readStudentList() {
+        List<String> students = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Enter student names or press enter to finish:");
+        while (true) {
+            String name = input.nextLine();
+            if (name.isEmpyt()) {
+                break;
+            }
+            students.add(name);
+        }
+        
+        return students;
+    }
+
+    // Method to create random groups from the list of students
+    // Group size is the number of students in the group
+
+    public static List<List<String>> createRandomGroups(List<String> students, int groupSize) {
+        Collections.shuffle(students); 
+        
+        List<List<String>> groups = new ArrayList<>();
+        int studentsSize = students.size();
+        
+        for (int i = 0; i < studentsSize; i += groupSize) {
+            // Calculate the end index for the current group
+            int end = Math.min(i + groupSize, studentsSize);
+            
+            // Create a sublist for the current group
+            List<String> group = new ArrayList<>(students.subList(i, end));
+            groups.add(group);
+        }
+        
+        return groups;
+    }
+
+}
